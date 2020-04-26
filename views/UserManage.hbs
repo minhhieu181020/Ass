@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container"  style="background-color: #FFFFF0">
+
+
+    <div class="bg-dark" >
+        <h1 class=" mb-4" style="text-align: center;color: aliceblue;padding-top: 20px " >HOME </h1>
+
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="home">HOME</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="prouducts">PRODUCTS <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="manage">MANAGE</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="upload">UpLoad </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="UserManage">USER</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <!--    <div>-->
+    <!--        <text style="margin-bottom: 20px" class="container"> Name: </text>-->
+    <!--    </div>-->
+    <div class="container rounded-bottom bg-light ">
+        <br> <br>
+        <table class="table container col-10">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">NAME</th>
+                <th scope="col">PASSWORD</th>
+                <th scope="col">DELETE</th>
+            </tr>
+            </thead>
+            <tbody>
+
+
+            {{#each data}}
+                <tr>
+                    <th scope="row">{{this._id}}</th>
+                    <td>{{this.name}}</td>
+                    <td>{{this.password}}</td>
+                    <td>
+                        <form>
+                            <div class="form-group" style="display: none">
+                                <input type="text" name="idKH" value="{{this._id}}" class="form-control">
+                            </div>
+
+                            <button type="submit" name="del" value="1" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {{/each}}
+        </table>
+    </div>
+
+    <script language="javascript">
+        // Lấy đối tượng
+        var a_list = document.getElementsByClassName("delete");
+
+        // Lặp và gán sự kiện
+        for (var i = 0; i < a_list.length; i++){
+            a_list[i].onclick = async function()
+            {
+                alert(this.password);
+                return false
+            };
+        }
+        </script>
+</div>
+</div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
